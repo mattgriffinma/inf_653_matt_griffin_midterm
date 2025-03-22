@@ -2,7 +2,7 @@
   class Database {
     // DB Params
     private $host;
-    private $db_name;
+    private $dbname;
     private $username;
     private $password;
     private $conn;
@@ -23,16 +23,12 @@
         return $this->conn;
       } else {
         $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
-        echo $dsn;
       }
 
       try { 
         echo "Trying to connect";
         $this->conn = new PDO($dsn, $this->username, $this->password);
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        if($pdo) {
-          echo "Connected to the database successfully";
-        }
         return $this->conn;
       } catch(PDOException $e) {
         echo 'Connection Error: ' . $e->getMessage();
