@@ -50,7 +50,7 @@
       // array_push($posts_arr['data'], $post_item);
     }
 
-    if($quote_arr->count() == 1) {
+    if(count($quote_arr) == 1) {
       $single_quote = $quote_arr[0];
       echo json_encode($single_quote);
     } else {
