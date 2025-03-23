@@ -50,8 +50,13 @@
       // array_push($posts_arr['data'], $post_item);
     }
 
-    // Turn to JSON & output
-    echo json_encode($quote_arr);
+    if($quote_arr->count() == 1) {
+      $single_quote = $quote_arr[0];
+      echo json_encode($single_quote);
+    } else {
+      // Turn to JSON & output
+      echo json_encode($quote_arr);
+    }
 
   } else {
     // No categories
