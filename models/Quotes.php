@@ -79,11 +79,11 @@
 
             //clean data
             // Bind ID
-          if (isset($_GET['author_id']) and !(isset($_GET['id']))){
+          if (isset($_GET['author_id'])){
               $this->author_id = htmlspecialchars(strip_tags($this->author_id));
               $stmt->bindParam(':author_id', $this->author_id);
           }
-          if (isset($_GET['category_id']) and !(isset($_GET['id']))){
+          if (isset($_GET['category_id'])){
             $this->category_id = htmlspecialchars(strip_tags($this->category_id));
             $stmt->bindParam(':category_id', $this->category_id);
           }
