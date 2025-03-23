@@ -78,17 +78,17 @@
 
 
             //clean data
-            $this->author_id = htmlspecialchars(strip_tags($this->author_id));
-            $this->category_id = htmlspecialchars(strip_tags($this->category_id));
-            $this->id = htmlspecialchars(strip_tags($this->id));
             // Bind ID
           if (isset($_GET['author_id']) and !(isset($_GET['id']))){
+              $this->author_id = htmlspecialchars(strip_tags($this->author_id));
               $stmt->bindParam(':author_id', $this->author_id);
           }
           if (isset($_GET['category_id']) and !(isset($_GET['id']))){
+            $this->category_id = htmlspecialchars(strip_tags($this->category_id));
             $stmt->bindParam(':category_id', $this->category_id);
           }
           if (isset($_GET['id'])){
+            $this->id = htmlspecialchars(strip_tags($this->id));
             $stmt->bindParam(':id', $this->id);
           }
 
