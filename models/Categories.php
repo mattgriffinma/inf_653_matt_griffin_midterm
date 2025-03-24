@@ -41,8 +41,7 @@
             FROM 
                 ' . $this->table . ' c
             WHERE 
-              c.id = ?
-            LIMIT 0,1';
+              c.id = ?';
       
 
       // Prepare statement
