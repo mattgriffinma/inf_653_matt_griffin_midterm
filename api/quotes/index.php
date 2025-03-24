@@ -137,7 +137,7 @@
         );
       } else {
         echo json_encode(
-        array('message' => 'Could not delete quote')
+        array('message' => 'No Quotes Found')
       );
     }
   } else {
