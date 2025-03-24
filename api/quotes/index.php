@@ -80,7 +80,7 @@
       // Create quote
       if($quote->create()) {
         echo json_encode(
-        array('message' => 'Quote Created')
+        array('message' => 'created quote (id, quote, author_id, category_id)')
         );
       } else {
         echo json_encode(
