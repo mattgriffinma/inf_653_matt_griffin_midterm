@@ -76,7 +76,7 @@
       // Create author
       if($author->create()) {
         echo json_encode(
-          array('id' => 'auto', 'author'->$quote->author)
+          array('id' => 'auto', 'author'=>$quote->author)
         );
       } else {
         echo json_encode(
@@ -103,7 +103,7 @@
       // update author
       if($author->update()) {
         echo json_encode(
-        array('id' => $author->id, 'author'->$author->author)
+        array('id' => $author->id, 'author'=>$author->author)
         );
       } else {
         echo json_encode(

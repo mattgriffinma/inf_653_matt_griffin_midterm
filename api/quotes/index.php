@@ -80,7 +80,7 @@
       // Create quote
       if($quote->create()) {
         echo json_encode(
-        array('id' => 'auto', 'quote'->$quote->quote, 'author_id'->$quote->author_id, 'category_id'->$quote->category_id)
+        array('id' => 'auto', 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
         );
       } else {
         echo json_encode(
@@ -109,7 +109,7 @@
       // delete quote
       if($quote->update()) {
         echo json_encode(
-          array('id' => $quote->id, 'quote'->$quote->quote, 'author_id'->$quote->author_id, 'category_id'->$quote->category_id)
+          array('id' => $quote->id, 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
         );
       } else {
         echo json_encode(

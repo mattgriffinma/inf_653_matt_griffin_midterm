@@ -76,7 +76,7 @@
       // Create category
       if($category->create()) {
         echo json_encode(
-        array(('id' => 'auto', 'category'->$quote->category))
+        array('id' => 'auto', 'category'=>$quote->category)
         );
       } else {
         echo json_encode(
@@ -102,7 +102,7 @@
       // delete category
       if($category->update()) {
         echo json_encode(
-          array('id' => $author->id, 'author'->$author->author)
+          array('id' => $author->id, 'author'=>$author->author)
         );
       } else {
         echo json_encode(
