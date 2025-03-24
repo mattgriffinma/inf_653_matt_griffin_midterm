@@ -102,7 +102,7 @@
       // delete category
       if($category->update()) {
         echo json_encode(
-        array('message' => 'category Updated')
+          array('id' => $author->id, 'author'->$author->author)
         );
       } else {
         echo json_encode(
