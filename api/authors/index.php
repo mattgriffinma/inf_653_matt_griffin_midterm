@@ -94,12 +94,11 @@
   elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
-    var_dump($data);
 
-    $author->id = $data->id;
-    $author->author = $data->author;
-    if ($author->id and $author->author){
-
+    
+    if ($data->id and $data->author){
+      $author->id = $data->id;
+      $author->author = $data->author;
       // update author
       if($author->update()) {
         echo json_encode(

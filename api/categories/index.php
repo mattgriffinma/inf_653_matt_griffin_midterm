@@ -95,10 +95,10 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    $category->id = $data->id;
-    $category->category = $data->category;
-    if ($category->id and $category->category){
-
+    
+    if ($data->id and $data->category){
+      $category->id = $data->id;
+      $category->category = $data->category;
       // delete category
       if($category->update()) {
         echo json_encode(
