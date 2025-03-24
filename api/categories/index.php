@@ -76,7 +76,7 @@
       // Create category
       if($category->create()) {
         echo json_encode(
-        array('id' => 'auto', 'category'=>$quote->category)
+        array('id' => 'auto', 'category'=>$category->category)
         );
       } else {
         echo json_encode(
