@@ -82,8 +82,7 @@
         // Update Author
         public function update() {
           // Create query
-          $query = 'UPDATE ' . $this->table . ' (author) VALUES (:author)
-             WHERE id = :id';
+          $query = 'UPDATE ' . $this->table . ' SET author VALUES = :author WHERE id = :id';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);

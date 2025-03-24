@@ -138,7 +138,7 @@
         // Update Quote
         public function update() {
           // Create query
-          $query = 'UPDATE ' . $this->table . ' (author_id, quote, category_id) VALUES (:author_id, :quote, :category_id)
+          $query = 'UPDATE ' . $this->table . ' SET author_id = :author_id, category_id = :category_id, quote = :quote
              WHERE id = :id';
 
              
