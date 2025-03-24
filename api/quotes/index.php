@@ -73,7 +73,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     
-    if ($data->quote and $data->category_id and $data->author_id){
+    if (isset($data->quote) and isset($data->category_id) and isset($data->author_id)){
       $quote->quote = $data->quote;
       $quote->author_id = $data->author_id;
       $quote->category_id = $data->category_id;

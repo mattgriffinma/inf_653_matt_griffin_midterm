@@ -96,7 +96,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     
-    if ($data->id and $data->author){
+    if (isset($data->id) and isset($data->author)){
       $author->id = $data->id;
       $author->author = $data->author;
       // update author

@@ -96,7 +96,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     
-    if ($data->id and $data->category){
+    if (isset($data->id) and isset($data->category)){
       $category->id = $data->id;
       $category->category = $data->category;
       // delete category
