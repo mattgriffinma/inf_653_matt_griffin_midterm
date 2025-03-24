@@ -100,7 +100,7 @@
     $author->author = $data->author;
     if ($author->id and $author->author){
 
-      // delete author
+      // update author
       if($author->update()) {
         echo json_encode(
         array('message' => 'Author Updated')
@@ -127,7 +127,7 @@
       // delete author
       if($author->delete()) {
         echo json_encode(
-        array('message' => 'Author Deleted')
+        array('id' => $author->id)
         );
       } else {
         echo json_encode(

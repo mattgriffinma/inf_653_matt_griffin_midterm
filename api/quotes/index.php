@@ -133,7 +133,7 @@
       // delete quote
       if($quote->delete()) {
         echo json_encode(
-        array('message' => 'quote Deleted')
+          array('id' => $quote->id)
         );
       } else {
         echo json_encode(
