@@ -109,7 +109,8 @@
     // Create Quote
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET author_id = :author_id, quote = :quote, category_id = :category_id';
+          //$query = 'INSERT INTO ' . $this->table . ' SET author_id = :author_id, quote = :quote, category_id = :category_id';
+          $query = 'INSERT INTO ' . $this->table . ' (author_id, quote, category_id) VALUES (:author_id, :quote, :category_id)';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
@@ -137,9 +138,10 @@
         // Update Quote
         public function update() {
           // Create query
-          $query = 'UPDATE ' . $this->table . '
-              SET author_id = :author_id, quote = :quote, category_id = :category_id
+          $query = 'UPDATE ' . $this->table . ' (author_id, quote, category_id) VALUES (:author_id, :quote, :category_id)
              WHERE id = :id';
+
+             
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);

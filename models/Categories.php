@@ -58,7 +58,7 @@
     // Create Author
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET category = :category';
+          $query = 'INSERT INTO ' . $this->table . ' (category) VALUES (:category)';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
@@ -82,8 +82,7 @@
         // Update Author
         public function update() {
           // Create query
-          $query = 'UPDATE ' . $this->table . '
-             SET category = :category
+          $query = 'UPDATE ' . $this->table . ' (category) VALUES (:category)
              WHERE id = :id';
 
           // Prepare statement
