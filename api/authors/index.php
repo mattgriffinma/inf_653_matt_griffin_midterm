@@ -76,7 +76,7 @@
       // Create author
       if($author->create()) {
         echo json_encode(
-          array('id' => 'auto', 'author'=>$quote->author)
+          array('id' => 'auto', 'author'=>$author->author)
         );
       } else {
         echo json_encode(
