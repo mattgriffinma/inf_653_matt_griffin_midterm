@@ -48,13 +48,18 @@
       // array_push($posts_arr['data'], $post_item);
     }
 
-    // Turn to JSON & output
-    echo json_encode($category_arr);
+    if(count($category_arr) == 1) {
+      $single_quote = $category_arr[0];
+      echo json_encode($single_quote);
+    } else {
+      // Turn to JSON & output
+      echo json_encode($category_arr);
+    }
 
   } else {
     // No categories
     echo json_encode(
-      array('message' => 'No Categories Found')
+      array('message' => 'category_id Not Found')
     );
   }
 }

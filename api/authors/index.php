@@ -47,14 +47,19 @@
       array_push($author_arr, $author_item);
       // array_push($posts_arr['data'], $post_item);
     }
+    if(count($author_arr) == 1) {
+      $single_quote = $author_arr[0];
+      echo json_encode($single_quote);
+    } else {
+      // Turn to JSON & output
+      echo json_encode($author_arr);
+    }
 
-    // Turn to JSON & output
-    echo json_encode($author_arr);
 
   } else {
     // No Authors
     echo json_encode(
-      array('message' => 'No Authors Found')
+      array('message' => 'author_id Not Found')
     );
   }
 }
