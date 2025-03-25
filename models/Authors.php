@@ -82,7 +82,7 @@
         // Update Author
         public function update() {
           // Create query
-          $query = 'UPDATE ' . $this->table . ' SET author VALUES = :author WHERE id = :id';
+          $query = 'UPDATE ' . $this->table . ' SET author = :author WHERE id = :id';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
@@ -92,7 +92,7 @@
 
           // Bind data
           $stmt->bindParam(':id', $this->id);
-          $stmt->bindParam(':author', $this->author);
+          $stmt->bindParam(':category', $this->author);
 
           // Execute query
           if($stmt->execute()) {
