@@ -92,7 +92,7 @@
 
           // Bind data
           $stmt->bindParam(':id', $this->id);
-          $stmt->bindParam(':category', $this->author);
+          $stmt->bindParam(':author', $this->author);
 
           // Execute query
           if($stmt->execute()) {

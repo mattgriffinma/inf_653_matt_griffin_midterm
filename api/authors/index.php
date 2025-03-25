@@ -102,7 +102,7 @@
       // update author
       if($author->update()) {
         echo json_encode(
-          array('id' => $author->id, 'category'=>$author->author)
+          array('id' => $author->id, 'author'=>$author->author)
         );
       } else {
         echo json_encode(
