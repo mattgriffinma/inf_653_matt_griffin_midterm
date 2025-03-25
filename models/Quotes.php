@@ -8,7 +8,7 @@
     public $id;
     public $category;
     public $category_id;
-    public $body;
+    public $quote;
     public $author;
     public $author_id;
 
