@@ -140,9 +140,11 @@
 
     $quote->id = $data->id;
     if ($quote->id){
+       $result = $quote->read_filtered(); 
+       $num = $result->rowCount();
 
       // delete quote
-      if($quote->delete()) {
+      if($num > 0 and $quote->delete()) {
         echo json_encode(
           array('id' => $quote->id)
         );
