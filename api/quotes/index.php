@@ -137,15 +137,41 @@
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
-    $quote->id = $data->id;
-    $quote->quote = $data->quote;
-    $quote->author_id = $data->author_id;
-    $quote->category_id = $data->category_id;
+
 
     if (isset($data->id) and isset($data->quote) and isset($data->category_id) and isset($data->author_id)){
+      $quote->id = $data->id;
+      $quote->quote = $data->quote;
+      $quote->author_id = $data->author_id;
+      $quote->category_id = $data->category_id;
+
+      //set to look for authors and quotes
+      $author = new Author($db);
+      $author->id = $quote->author_id;
+      $authorResult = $author->read_single();
+      $authorCount = $authorResult->rowCount();
+
+      $category = new Category($db);
+      $category->id = $quote->category_id;
+      $categoryResult = $category->read_single();
+      $categoryCount = $categoryResult->rowCount();
+
+      
+      //author not found
+      if ($authorCount === 0){
+        echo json_encode(
+          array('message' => 'author_id Not Found')
+        );
+      }
+      //category not found
+      elseif ($categoryCount === 0){
+        echo json_encode(
+          array('message' => 'category_id Not Found')
+        );
+      }
 
       // delete quote
-      if($quote->update()) {
+      elseif($quote->update()) {
         echo json_encode(
           array('id' => $quote->id, 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
         );
