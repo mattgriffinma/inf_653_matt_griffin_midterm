@@ -156,6 +156,9 @@
       $categoryResult = $category->read_single();
       $categoryCount = $categoryResult->rowCount();
 
+      $quoteResult = $quote->read_filtered();
+      $quoteCount = $quoteResult->rowCount();
+
       
       //author not found
       if ($authorCount === 0){
@@ -167,6 +170,12 @@
       elseif ($categoryCount === 0){
         echo json_encode(
           array('message' => 'category_id Not Found')
+        );
+      }
+      //quote not found
+      elseif ($quoteCount === 0){
+        echo json_encode(
+          array('message' => 'No Quotes Found')
         );
       }
 
