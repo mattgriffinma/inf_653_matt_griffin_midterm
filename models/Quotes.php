@@ -46,16 +46,13 @@
         //set Filter
         $filter = "";
         
-        if (isset($_GET['author_id'])){
-            $this->author_id = $_GET['author_id'];
+        if (isset($this->author_id)){
             $filter = "author_id = :author_id";
         }
-        if (isset($_GET['category_id'])){
-            $this->category_id = $_GET['category_id'];
+        if (isset($this->category_id)){
             $filter .= empty($filter) ? "category_id = :category_id" : " AND category_id = :category_id";
         }
-        if (isset($_GET['id'])){
-            $this->id = $_GET['id'];
+        if (isset($this->id)){
             $filter = "q.id=:id";
         }
  
@@ -79,15 +76,15 @@
 
             //clean data
             // Bind ID
-          if (isset($_GET['author_id'])){
+          if (isset($this->author_id)){
               $this->author_id = htmlspecialchars(strip_tags($this->author_id));
               $stmt->bindParam(':author_id', $this->author_id);
           }
-          if (isset($_GET['category_id'])){
+          if (isset($this->category_id)){
             $this->category_id = htmlspecialchars(strip_tags($this->category_id));
             $stmt->bindParam(':category_id', $this->category_id);
           }
-          if (isset($_GET['id'])){
+          if (isset($this->id)){
             $this->id = htmlspecialchars(strip_tags($this->id));
             $stmt->bindParam(':id', $this->id);
           }

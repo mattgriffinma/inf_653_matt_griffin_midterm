@@ -20,7 +20,17 @@
   
   //GET Method
   if ($_SERVER['REQUEST_METHOD'] === 'GET') { 
-    if (isset($_GET['id']) or isset($_GET['author_id']) or isset($_GET['category_id'])){
+    if (isset($_GET['author_id'])){
+      $quote->author_id = $_GET['author_id'];
+  }
+  if (isset($_GET['category_id'])){
+      $quote->category_id = $_GET['category_id'];
+  }
+  if (isset($_GET['id'])){
+      $quote->id = $_GET['id'];
+  }
+
+    if (isset($quote->id) or isset($quote->author_id) or isset($quote->category_id)){
         
       $result = $quote->read_filtered(); 
   } else {
