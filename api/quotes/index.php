@@ -92,15 +92,16 @@
       $quote->category_id = $data->category_id;
 
       //set to look for authors and quotes
-      $author = new Author;
+      $author = new Author($db);
       $author->id = $quote->author_id;
       $authorResult = $author->read_single();
       $authorCount = $authorResult->rowCount();
 
-      $category = new Category;
+      $category = new Category($db);
       $category->id = $quote->category_id;
       $categoryResult = $category->read_single();
       $categoryCount = $categoryResult->rowCount();
+
       //author not found
       if ($authorCount === 0){
         echo json_encode(
