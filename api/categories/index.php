@@ -71,7 +71,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     $category->category = $data->category;
-    if ($category->category){
+    if (isset($category->category)){
 
       // Create category
       if($category->create()) {

@@ -69,9 +69,9 @@
     // Get raw posted data
 
     $data = json_decode(file_get_contents("php://input"));
-
+    
     $author->author = $data->author;
-    if ($author->author){
+    if (isset($author->author)){
 
       // Create author
       if($author->create()) {
