@@ -76,11 +76,11 @@
 
             //clean data
             // Bind ID
-          if (isset($this->author_id)){
+          if (isset($this->author_id) and !isset($this->id)){
               $this->author_id = htmlspecialchars(strip_tags($this->author_id));
               $stmt->bindParam(':author_id', $this->author_id);
           }
-          if (isset($this->category_id)){
+          if (isset($this->category_id) and !isset($this->id)){
             $this->category_id = htmlspecialchars(strip_tags($this->category_id));
             $stmt->bindParam(':category_id', $this->category_id);
           }
