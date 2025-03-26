@@ -70,9 +70,10 @@
 
     $data = json_decode(file_get_contents("php://input"));
     
-    $author->author = $data->author;
-    if (isset($author->author)){
 
+    
+    if (isset($data->author)){
+      $author->author = $data->author;
       // Create author
       if($author->create()) {
         echo json_encode(
