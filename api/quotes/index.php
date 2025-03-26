@@ -7,6 +7,9 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Quotes.php';
+  include_once '../../models/Authors.php';
+  include_once '../../models/Categories.php';
+
 
   // Instantiate DB & connect
   $database = new Database();
@@ -88,8 +91,31 @@
       $quote->author_id = $data->author_id;
       $quote->category_id = $data->category_id;
 
+      //set to look for authors and quotes
+      $author = new Author;
+      $author->id = $quote->author_id;
+      $authorResult = $author->read_single();
+      $authorCount = $authorResult->rowCount();
+
+      $category = new Category;
+      $category->id = $quote->category_id;
+      $categoryResult = $category->read_single();
+      $categoryCount = $categoryResult->rowCount();
+      //author not found
+      if ($authorCount === 0){
+        echo json_encode(
+          array('message' => 'author_id Not Found')
+        );
+      }
+      //category not found
+      elseif ($categoryCount === 0){
+        echo json_encode(
+          array('message' => 'category_id Not Found')
+        );
+      }
+      
       // Create quote
-      if($quote->create()) {
+      elseif($quote->create()) {
         echo json_encode(
         array('id' => 'auto', 'quote'=>$quote->quote, 'author_id'=>$quote->author_id, 'category_id'=>$quote->category_id)
         );
