@@ -142,7 +142,7 @@
     $quote->author_id = $data->author_id;
     $quote->category_id = $data->category_id;
 
-    if ($quote->id and $quote->quote and $quote->category_id and $quote->author_id){
+    if (isset($data->id) and isset($data->quote) and isset($data->category_id) and isset($data->author_id)){
 
       // delete quote
       if($quote->update()) {
